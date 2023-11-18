@@ -1,3 +1,4 @@
+from base import *
 from vechiles_app import *
 from customer_app import *
 from booking_app import *
