@@ -37,6 +37,20 @@ class TestBooking(unittest.TestCase):
     def test_reset_to_pending(self):
         result = self.booking1.reset_to_pending()
         self.assertEqual(result, True)
-
+    
+    def test_print_report(self):
+        bookings = [self.booking1]
+        data = [{
+            'name': booking.name,
+            'invoice': booking.invoice.name,
+            'customer': booking.customer.name,
+            'vechile': booking.vechile.name,
+            'licence_no': booking.vechile.licence_no,
+            'amount': booking.invoice.amount
+            
+        } for booking in bookings]
+        attributes = ['name', 'invoice', 'customer', 'vechile', 'amount', 'licence_no']
+        BookingManagment._print_report("Booking Report", data, attributes)
+        
 if __name__ == '__main__':
     unittest.main()
